@@ -9,9 +9,7 @@ app.use(require("./routes/story"));
 // get driver connection
 const dbo = require("./db/conn");
 
-app.get('/', function (req, res) {
-  res.render('index', {});
-});
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 app.listen(port, async () => {
   // perform a database connection when server starts
