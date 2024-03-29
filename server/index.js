@@ -9,6 +9,10 @@ app.use(require("./routes/story"));
 // get driver connection
 const dbo = require("./db/conn");
 
+app.get('/', function (req, res) {
+  res.render('index', {});
+});
+
 app.listen(port, async () => {
   // perform a database connection when server starts
   await dbo.connectToServer(function (err) {
@@ -16,6 +20,7 @@ app.listen(port, async () => {
   });
   console.log(`Server is running on port: ${port}`);
 });
+
 
 
 module.exports = app;
