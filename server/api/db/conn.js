@@ -1,6 +1,6 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
 require('dotenv').config()
-const Db = process.env.ATLAS_URI;
+const Db = process.env.MONGODB_URI;
 const client = new MongoClient(Db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
