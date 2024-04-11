@@ -13,7 +13,7 @@ const [headerImg, setHeaderImg] = useState(null);
   useEffect(() => {
    async function fetchData() {
      const collectionName = params.collection.toString();
-     const response = await fetch(`https://senior-archive-backend.vercel.app/stories/collections/${params.collection.toString()}`);
+     const response = await fetch(`http://localhost:5000/stories/collections/${params.collection.toString()}`);
       if (!response.ok) {
        const message = `An error has occurred: ${response.statusText}`;
        window.alert(message);
