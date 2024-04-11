@@ -18,7 +18,7 @@ recordRoutes.route("/stories").get(async function (req, response) {
   let db_connect = await dbo.getDb(function (err) {
     if (err) console.error(err);
   });
-  db_connect
+  let results = await db_connect
     .collection("stories")
     .find({})
     .toArray()
@@ -26,7 +26,7 @@ recordRoutes.route("/stories").get(async function (req, response) {
       console.log(data);
       response.json(data);
     });
-
+  response.send(results).status(200);
 });
 
 
