@@ -8,7 +8,7 @@ export default function Archive() {
 
     useEffect(() => {
         async function getStories() {
-          const response = await fetch(`http://localhost:5000/collections/`);
+          const response = await fetch(`https://senior-archive-backend.vercel.app/collections/`);
            if (!response.ok) {
             const message = `An error occurred: ${response.statusText}`;
             window.alert(message);
