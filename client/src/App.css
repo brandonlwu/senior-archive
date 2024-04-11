@@ -5,6 +5,12 @@
   margin: auto;
 }
 
+
+.front-page-link {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
 .headline {
   font-family: Roboto;
   font-size: 16px;
@@ -315,6 +321,16 @@
   font-weight: lighter;
   font-size: 24px;
   text-align: left;
+  margin-left: 16px;
+	align-items: center;
+}
+
+.image-text-center {
+  margin-top: 0px;
+  font-family: 'Merriweather';
+  font-weight: lighter;
+  font-size: 24px;
+  text-align: center;
   margin-left: 16px;
 	align-items: center;
 }

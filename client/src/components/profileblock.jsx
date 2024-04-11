@@ -1,7 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 
 function Block({genre, text, img}) {
-    console.log(img)
     return (
         <div>
             <div className='col-placard'>

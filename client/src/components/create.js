@@ -12,7 +12,9 @@ export default function Create() {
    narrator: "",
    text: "",
    img: "",
-   genre:[]
+   genre:[],
+   collection: "",
+   number: null,
  });
  const navigate = useNavigate();
   // These methods will update the state properties.
@@ -56,7 +58,7 @@ const themeOptionList = themes.map((theme) =>
      window.alert(error);
      return;
    });
-    setForm({ narrator: "", text: "", img: "", genre:[] });
+    setForm({ narrator: "", text: "", img: "", genre:[], collection: "",number: null });
    navigate("/");
  }
   // This following section will display the form that takes the input from the user.
@@ -99,6 +101,26 @@ const themeOptionList = themes.map((theme) =>
             id="img"
             value={form.img}
             onChange={(e) => updateForm({ img: e.target.value })}
+          />
+        </div>
+        <div className="question-left">
+          <label htmlFor="collection" className="question-text">Collection</label>
+          <input
+            type="text"
+            className="form-control"
+            id="collection"
+            value={form.collection}
+            onChange={(e) => updateForm({ collection: e.target.value })}
+          />
+        </div>
+        <div className="question-left">
+          <label htmlFor="collection" className="question-text">Number</label>
+          <input
+            type="number"
+            className="form-control"
+            id="number"
+            value={form.number}
+            onChange={(e) => updateForm({ number: e.target.value })}
           />
         </div>
        </div>

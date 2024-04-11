@@ -28,17 +28,45 @@ recordRoutes.route("/stories").get(async function (req, response) {
 
 
  
-// This section will help you get a single record by id
-recordRoutes.route("/stories/:id").get(function (req, res) {
- let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
- db_connect
-   .collection("stories")
-   .findOne(myquery, function (err, result) {
-     if (err) throw err;
-     res.json(result);
-   });
-});
+// // This section will help you get a single record by id
+// recordRoutes.route("/stories/:id").get(function (req, res) {
+//  let db_connect = dbo.getDb();
+//  let myquery = { _id: ObjectId(req.params.id) };
+//  db_connect
+//    .collection("stories")
+//    .findOne(myquery, function (err, result) {
+//      if (err) throw err;
+//      res.json(result);
+//    });
+// });
+
+
+// This section will help you get records by collection
+recordRoutes.route("/stories/collections/:collection").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { collection: req.params.collection };
+  db_connect
+    .collection("stories")
+    .find(myquery)
+    .toArray()
+    .then((data) => {
+      console.log(data);
+      res.json(data);
+    });
+ });
+  
+
+ recordRoutes.route("/collections").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  console.log("getting collection")
+  db_connect
+    .collection("stories")
+    .distinct("collection")
+    .then((data) => {
+      console.log(data);
+      res.json(data);
+    });
+ });
  
 // This section will help you create a new record.
 recordRoutes.route("/stories/add").post(function (req, response) {
@@ -48,6 +76,8 @@ recordRoutes.route("/stories/add").post(function (req, response) {
    genre: req.body.genre,
    text: req.body.text,
    img: req.body.img,
+   collection: req.body.collection,
+   number: req.body.number,
  };
  db_connect.collection("stories").insertOne(myobj, function (err, res) {
    if (err) throw err;
@@ -65,6 +95,8 @@ recordRoutes.route("/update/:id").post(function (req, response) {
     genre: req.body.genre,
     text: req.body.text,
     img: req.body.img,
+    collection: req.body.collection,
+      number: req.body.number,
    },
  };
  db_connect

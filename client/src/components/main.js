@@ -35,9 +35,9 @@ function Main() {
        return;
      }
     const records = await response.json();
-     setStories(records);
+    setStories(records);
    }
-    getStories();;
+    getStories();
     return;
  }, [stories.length]);
 
@@ -53,11 +53,11 @@ function Main() {
   for (let i = 0; i < stories.length; i++) {
     if (topic == 'all') {
       if (i%3 == 0) {
-        col1.push(<Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/>);
+        col1.push(<NavLink className='front-page-link' to={`/story/${stories[i].collection}`}><Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/></NavLink>);
       } else if (i%3 == 1) {
-        col2.push(<Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/>);
+        col2.push(<NavLink className='front-page-link' to={`/story/${stories[i].collection}`}><Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/></NavLink>);
       } else {
-        col3.push(<Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/>);
+        col3.push(<NavLink className='front-page-link' to={`/story/${stories[i].collection}`}><Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/></NavLink>);
       }
     } else {
       if (stories[i].genre.includes(topic)) {
@@ -87,7 +87,7 @@ function Main() {
         <NavLink className="linkstyle" to="/create">
           <button className="button1 storybutton">SHARE STORY</button>
              </NavLink>
-        <Link to={'/trunk-of-letters'} className='linkstyle'>
+        <Link to={'/archive'} className='linkstyle'>
         <button className='button1 storybutton'>BROWSE THE ARCHIVE</button>
         </Link>
         </div>

@@ -7,8 +7,8 @@ import Navbar from "./components/navbar";
 import Main from "./components/main";
 import Edit from "./components/edit";
 import Create from "./components/create";
-import Story1 from "./components/story1";
-import Story2 from "./components/story2";
+import Story from "./components/story";
+import Archive from "./components/archive";
  const App = () => {
  return (
    <div>
@@ -16,8 +16,10 @@ import Story2 from "./components/story2";
        <Route exact path="/" element={<Main />} />
        <Route path="/edit/:id" element={<Edit />} />
        <Route path="/create" element={<Create />} />
-       <Route path="/trunk-of-letters" element={<Story1 />} />
-       <Route path="/moms-radio" element={<Story2 />} />
+       <Route path="/archive" element={<Archive />} />
+       <Route path="/story/">
+        <Route path=":collection" element={<Story/>} />
+       </Route>
      </Routes>
    </div>
  );
