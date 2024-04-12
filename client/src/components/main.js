@@ -84,9 +84,9 @@ function Main() {
         <NavLink to={'/'} className='linkstyle'>
         <p className='headline'>Stories From Home</p>
         </NavLink>
-        <NavLink className="linkstyle" to="/create">
+        {/* <NavLink className="linkstyle" to="/create">
           <button className="button1 storybutton">SHARE STORY</button>
-             </NavLink>
+        </NavLink> */}
         <Link to={'/archive'} className='linkstyle'>
         <button className='button1 storybutton'>BROWSE THE ARCHIVE</button>
         </Link>
