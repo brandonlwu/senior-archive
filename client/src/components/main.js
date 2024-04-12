@@ -28,7 +28,7 @@ function Main() {
   // This method fetches the stories from the database.
  useEffect(() => {
    async function getStories() {
-     const response = await fetch(`http://localhost:5000/stories/`); //http://localhost:5000/stories/
+     const response = await fetch(`https://senior-archive-backend.onrender.com/stories/`); //http://localhost:5000/stories/
       if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
        window.alert(message);
