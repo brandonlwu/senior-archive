@@ -9,17 +9,23 @@ const storyRouter = require("./routes/story");
 // get driver connection
 const dbo = require("./db/conn");
 
-app.use("/", storyRouter)
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+async function bootstrap() {
 
-app.listen(port, async () => {
-  // perform a database connection when server starts
-  await dbo.connectToServer(function (err) {
-    if (err) console.error(err);
+  app.use("/", storyRouter)
+
+  app.get("/", (req, res) => res.send("Express on Vercel"));
+
+  app.listen(port, async () => {
+    // perform a database connection when server starts
+    await dbo.connectToServer(function (err) {
+      if (err) console.error(err);
+    });
+    console.log(`Server is running on port: ${port}`);
   });
-  console.log(`Server is running on port: ${port}`);
-});
+}
+
+bootstrap();
 
 
 module.exports = app;
