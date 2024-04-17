@@ -47,7 +47,8 @@ function Main() {
   const col3 = [];
   let val = 0;
 
-  const shuffleStories = shuffle(stories)
+  // const shuffleStories = shuffle(stories)
+  // const shuffleStores = stories
 
 
   for (let i = 0; i < stories.length; i++) {
@@ -62,11 +63,11 @@ function Main() {
     } else {
       if (stories[i].genre.includes(topic)) {
         if (val%3 == 0) {
-          col1.push(<Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/>);
+          col1.push(<NavLink className='front-page-link' to={`/story/${stories[i].collection}`}><Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/></NavLink>);
         } else if (val%3 == 1) {
-          col2.push(<Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/>);
+          col2.push(<NavLink className='front-page-link' to={`/story/${stories[i].collection}`}><Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/></NavLink>);
         } else {
-          col3.push(<Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/>);
+          col3.push(<NavLink className='front-page-link' to={`/story/${stories[i].collection}`}><Block genre = {stories[i].genre} text = {stories[i].text} img = {stories[i].img}/></NavLink>);
         }
         val++;
       }
